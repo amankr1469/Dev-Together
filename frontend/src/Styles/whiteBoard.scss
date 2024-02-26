@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#white-board {
+  position: absolute;
+  top: calc(-100vh + 50px);
+  left: 0;
+  width: 100vw;
+  z-index: 100;
+  height: 100vh;
+  background-color: #fff;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out;
+  cursor: none;
+
+  &.active {
+    top: 0;
+
+    #white-board-btn {
+      span {
+        display: none;
+      }
+
+      &::after {
+        content: "Code Editor";
+      }
+    }
+  }
+  .toolbar {
+    width: 100vw;
+    height: 80px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2vw;
+
+    .sizes {
+      max-width: 33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .size {
+        width: 120px;
+        aspect-ratio: 12/5;
+        margin: 0 10px;
+        padding: 0 2%;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &::before {
+          content: "";
+          width: 100%;
+          height: calc(1px * var(--width));
+          background-color: black;
+        }
+
+        &.active {
+          transform: scale(1.1);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 1);
+        }
+      }
+    }
+
+    .colors {
+      max-width: 33%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .color {
+        width: 50px;
+        aspect-ratio: 1/1;
+        margin: 0 10px;
+        cursor: pointer;
+        background: var(--color);
+        transition: all 0.2s ease-in-out;
+      }
+
+      .color.active {
+        transform: scale(1.1);
+        border: 3px solid black;
+        box-shadow: 0 0 10px var(--color);
+      }
+    }
+
+    .extras {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      max-width: 33%;
+
+      #clearScreen,
+      #eraser {
+        width: 60px;
+        aspect-ratio: 1/1;
+        margin: 0 10px;
+        cursor: pointer;
+        border: 2px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: clamp(0.6rem, 1.2vw, 1.2rem);
+        transition: 0.3s ease-in-out;
+      }
+
+      #eraser {
+        min-width: 20px;
+        background: url("../../public/eraser.png") no-repeat center;
+        background-size: contain;
+
+        &.active {
+          transform: scale(1.1);
+          border: 4px solid black;
+        }
+      }
+
+      .shapes {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .shape,
+        #pen {
+          width: clamp(20px, 4vw, 60px);
+          aspect-ratio: 1 /1;
+          margin: 0 10px;
+          cursor: pointer;
+          border: 2px solid black;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: clamp(1rem, 2vw, 2rem);
+          transition: 0.3s ease-in-out;
+
+          &.active {
+            transform: scale(1.1);
+            border: 4px solid black;
+          }
+        }
+      }
+    }
+  }
+
+  #white-board-btn {
+    margin: 0 auto;
+    display: block;
+    padding: 10px;
+    background-color: white;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px;
+    position: relative;
+    outline: 0;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+
+    &::before {
+      width: 100vw;
+      height: 50px;
+      top: -10px;
+      left: calc(-50vw + 50%);
+      content: "";
+      position: absolute;
+      box-shadow: 0 -5px 10px 0px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .dark & {
+    background-color: #222;
+    box-shadow: 0 5px 10px 0px rgba(#fff, 0.3);
+
+    .toolbar {
+      box-shadow: 0 0 10px rgba(#fff, 1);
+
+      .sizes {
+        color: white;
+
+        > * {
+          box-shadow: 0 0 10px rgba(#fff, 0.8);
+
+          &::before {
+            background-color: white;
+          }
+
+          &.active {
+            box-shadow: 0 0 10px 4px rgba(#fff, 1);
+          }
+        }
+      }
+
+      .color {
+        &.active {
+          border: 3px solid white;
+          transform: scale(1.25);
+          box-shadow: 0 0 10px 1px white;
+        }
+      }
+
+      .extras {
+        #clearScreen,
+        #eraser {
+          border: 2px solid white;
+          color: white;
+
+          &.active {
+            border: 4px solid white;
+          }
+        }
+
+        .shapes {
+          .shape,
+          #pen {
+            color: white;
+            border: 2px solid white;
+
+            &.active {
+              border: 4px solid white;
+            }
+          }
+        }
+      }
+    }
+
+    #white-board-btn {
+      background-color: black;
+      border: 1px solid white;
+      color: white;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+      &::before {
+        box-shadow: 0 -5px 10px 0px rgba(#fff, 0.3);
+      }
+    }
+  }
+}
+
+#cursor {
+  position: absolute;
+  background-image: url("../../public/pencil.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 25px;
+  height: 25px;
+  z-index: 1000;
+  pointer-events: none;
+  left: 100px;
+  top: 100px;
+}
+
+#shape-demo {
+  position: absolute;
+  border: 1px solid black;
+  z-index: 1000;
+  left: 100px;
+  top: 100px;
+}

@@ -1,0 +1,46 @@
+{
+    "javascript": {
+        "snippet": "console.log(\"Hello in JavaScript Language\");",
+        "language": "javascript"
+    },
+    "java": {
+        "snippet": "class hello{\n    public static void main(String[] args) {\n        System.out.println(\"Hello World in java Language\");\n    }\n}\n",
+        "language": "java"
+    },
+    "python": {
+        "snippet": "print(\"Hello in Python Language\")",
+        "language": "python"
+    },
+    "c_cpp": {
+        "snippet": "#include <iostream>\n\nint main(){\n\nstd::cout << \"Hello in C/C++ Language\";\n\nreturn 0;\n}",
+        "language": "cpp"
+    },
+    "rust": {
+        "snippet": "fn main() {\n    println!(\"Hello in Rust Language\");\n}",
+        "language": "rust"
+    },
+    "golang": {
+        "snippet": "package main\n\nimport \"fmt\"\n\nfunc main() {\n    fmt.Println(\"Hello in Go Language\")\n}",
+        "language": "go"
+    },
+    "php": {
+        "snippet": "<?php\necho \"Hello in PHP Language\";\n?>",
+        "language": "php"
+    },
+    "ruby": {
+        "snippet": "puts \"Hello in Ruby Language\"",
+        "language": "ruby"
+    },
+    "swift": {
+        "snippet": "print(\"Hello in Swift Language\")",
+        "language": "swift"
+    },
+    "kotlin": {
+        "snippet": "fun main() {\n    println(\"Hello in Kotlin Language\")\n}",
+        "language": "kotlin"
+    },
+    "csharp": {
+        "snippet": "using System;\n\nnamespace HelloWorld\n{\n    class Hello\n    {\n        static void Main()\n        {\n            Console.WriteLine(\"Hello in C# Language\");\n            Console.ReadKey();\n        }\n    }\n}",
+        "language": "csharp"
+    }
+}
