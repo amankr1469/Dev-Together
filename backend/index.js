@@ -7,13 +7,14 @@ const { createServer } = require("http");
 const { Server } = require("socket.io")
 const cors = require('cors');
 const initSocketIO = require('./initSocket');
-config({path:"backend/src/config.env"});
 const port = process.env.PORT || 1234;
 const bodyParser = require('body-parser');
 const axios = require('axios')
 
 const app = express();
 const httpServer = createServer(app);
+
+require('dotenv').config(); 
 
 app.use(bodyParser.json({ limit: '1mb' }));
 

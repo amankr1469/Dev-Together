@@ -6,7 +6,7 @@ import { DataContext } from "./DataContext";
 import Loader from "./Loader";
 import { ToastContainer, toast } from "react-toastify";
 
-const clientId = process.env.REACT_APP_CLIENT_ID;
+const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
 
 
@@ -123,7 +123,7 @@ function Login() {
         }
 
 
-        axios.post(process.env.REACT_APP_BACKEND_URL + "users/login", data).then((response) => {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL} + "/users/login"`, data).then((response) => {
             setUser(response.data.user);
             localStorage.setItem('user', response.data.token);
         }).catch((error) => {
