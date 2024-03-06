@@ -46,6 +46,7 @@ const Ace = ({
     const [fontSize, setFontSize] = useState(18);
     const [fontFamily, setFontFamily] = useState('monospace');
     const sent = useRef(true);
+    const REACT_APP_BACKEND_URL = 'http://localhost:4000/';
 
 
     useEffect(() => {
@@ -55,7 +56,7 @@ const Ace = ({
         const sendData = setTimeout(() => {
             axios({
                 method: 'patch',
-                url: process.env.REACT_APP_BACKEND_URL + 'rooms/update',
+                url: REACT_APP_BACKEND_URL + 'rooms/update',
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem('user')}`
                 },

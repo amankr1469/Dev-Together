@@ -16,6 +16,7 @@ const override = {
 const RoomData = () => {
     const { user, setCurrRoom, setUser } = useContext(DataContext);
     const navigate = useNavigate();
+    const REACT_APP_BACKEND_URL = "http://localhost:4000/";
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -37,7 +38,7 @@ const RoomData = () => {
 
     const getData = async (item) => {
         loadingStart();
-        await axios.get(`${process.env.REACT_APP_BACKEND_URL + "rooms/fetch"}?id=${item.roomid}`
+        await axios.get(`${REACT_APP_BACKEND_URL + "rooms/fetch"}?id=${item.roomid}`
             , {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('user')}`
@@ -61,7 +62,7 @@ const RoomData = () => {
         loadingStart();
         axios({
             method: 'post',
-            url: process.env.REACT_APP_BACKEND_URL + 'rooms/create',
+            url: REACT_APP_BACKEND_URL + 'rooms/create',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('user')}`
             },
@@ -89,7 +90,7 @@ const RoomData = () => {
         loadingStart();
         axios({
             method: 'get',
-            url: process.env.REACT_APP_BACKEND_URL + `rooms/fetch?id=${roomID}`,
+            url: REACT_APP_BACKEND_URL + `rooms/fetch?id=${roomID}`,
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('user')}`
 
@@ -118,7 +119,7 @@ const RoomData = () => {
         loadingStart();
         axios({
             method: 'delete',
-            url: process.env.REACT_APP_BACKEND_URL + `rooms/delete`,
+            url: REACT_APP_BACKEND_URL + `rooms/delete`,
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('user')}`
             },

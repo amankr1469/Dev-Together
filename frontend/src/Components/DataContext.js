@@ -4,9 +4,10 @@ import { io } from "socket.io-client";
 export const DataContext = createContext(null);
 
 const DataContextProvider = ({ children }) => {
+    const REACT_APP_BACKEND_URL = 'http://localhost:4000/';
     const [user, setUser] = useState(null);
     const [currRoom, setCurrRoom] = useState(null);
-    const socket = useMemo(() => io(process.env.REACT_APP_BACKEND_URL), []);
+    const socket = useMemo(() => io(REACT_APP_BACKEND_URL), []);
 
     return (
         <DataContext.Provider value={{ user, currRoom, setUser, setCurrRoom, socket }}>

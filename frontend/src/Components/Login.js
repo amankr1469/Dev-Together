@@ -8,6 +8,7 @@ import { ToastContainer, toast } from "react-toastify";
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;
 axios.defaults.headers.post['Access-Control-Allow-Origin'] = '*';
+const REACT_APP_BACKEND_URL = 'http://localhost:4000/';
 
 
 function Login() {
@@ -28,7 +29,7 @@ function Login() {
             loadingStart();
             axios({
                 method: 'get',
-                url: process.env.REACT_APP_BACKEND_URL + "users/fetch",
+                url: REACT_APP_BACKEND_URL + "users/fetch",
                 headers: {
                     'Authorization': `Bearer ${token}`
                 }
@@ -54,15 +55,16 @@ function Login() {
         loadingStart();
         axios({
             method: 'post',
-            url: process.env.REACT_APP_BACKEND_URL + "users/login",
+            url: REACT_APP_BACKEND_URL + "users/login",
             data: credentialResponse
 
         }).then((response) => {
             setUser(response.data.user);
             loadingStop();
             localStorage.setItem('user', response.data.token);
-        }).catch((error) => {
+        }).catch((error, url) => {
             loadingStop();
+            console.log(url);
             console.log("error in axios login call", error);
         });
     }
@@ -95,7 +97,7 @@ function Login() {
                 showError("Please fill all the fields");
                 return;
             }
-            const url = process.env.REACT_APP_BACKEND_URL + "users/register"
+            const url = REACT_APP_BACKEND_URL + "users/register"
             axios.post(url, data).then((response) => {
                 console.log(response);
                 setUser(response.data.user);
@@ -123,7 +125,7 @@ function Login() {
         }
 
 
-        axios.post(`${process.env.REACT_APP_BACKEND_URL} + "/users/login"`, data).then((response) => {
+        axios.post(`${REACT_APP_BACKEND_URL} + "/users/login"`, data).then((response) => {
             setUser(response.data.user);
             localStorage.setItem('user', response.data.token);
         }).catch((error) => {
@@ -181,7 +183,7 @@ function Login() {
                                 <input type="password" id="password" name="password" />
                                 <input type="submit" value="Submit" />
                             </form>
-                            <p>New User? <button onClick={goToRegister}>Register</button></p>
+                            <p>New User? <button onClick={goToRegister} className="signup-btn">Register</button></p>
 
                         </div>
                         <div id="register-form">
@@ -197,7 +199,7 @@ function Login() {
                                 <input type="password" id="passwordConfirm" name="password" />
                                 <input type="submit" value="Submit" />
                             </form>
-                            <p>Already have an account? <button onClick={goToLogin}>Login</button></p>
+                            <p>Already have an account? <button onClick={goToLogin} className="signup-btn">Login</button></p>
 
                         </div>
                         <div id="error-message" className="error">
