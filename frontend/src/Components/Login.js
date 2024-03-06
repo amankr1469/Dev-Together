@@ -158,8 +158,7 @@ function Login() {
                 <>
                     <div className="login-register">
                         <div id="logo-login">
-                            <img src="./app-logo.png" alt="logo" />
-                            <img src="./app-logo-light.png" alt="logo-light" />
+                            <img src="./githubimg.svg" alt="logo" />
                         </div>
                         <GoogleOAuthProvider clientId={clientId}>
                             <GoogleLogin id="googlelogin"
