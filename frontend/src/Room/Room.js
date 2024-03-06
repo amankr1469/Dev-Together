@@ -26,6 +26,7 @@ const Room = () => {
     const EditorRef = useRef(null);
     const [isWhiteBoard, setIsWhiteBoard] = useState(false);
     const userVideoRef = useRef(null);
+    const REACT_APP_BACKEND_URL = 'http://localhost:4000/';
     function updateRoom(patch) {
         socket.emit('update', { roomid, patch })
     }
@@ -207,7 +208,7 @@ const Room = () => {
         setRunning(true);
         const id = toast.loading("Compiling...")
         await axios({
-            url: process.env.REACT_APP_BACKEND_URL + 'code/execute',
+            url: REACT_APP_BACKEND_URL + 'code/execute',
             method: 'post',
             headers: {
                 Authorization: `Bearer ${localStorage.getItem('user')}`
