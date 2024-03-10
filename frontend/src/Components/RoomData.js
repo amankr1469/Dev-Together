@@ -181,10 +181,10 @@ const RoomData = () => {
         isLoading ? (<Loader />) :
             (<div className="room-data">
                 <button onClick={logout} className="logOut">Logout</button>
-                <div className="userData">
+                <div className="userData" >
                     {user.avatar ?
-                        <img src={user.avatar} height={100} alt='user profile' />
-                        : <img height={100} src={`data:image/svg+xml;utf8,${generateFromString(user.email + user.name)}`} alt="user profile" />
+                        <img src={user.avatar} height={100} alt='user profile' style={{borderRadius: '50%'}} />
+                        : <img height={100} src={`data:image/svg+xml;utf8,${generateFromString(user.email + user.name)}`} alt="user profile" style={{borderRadius: '50%'}}  />
                     }
                     <h1>Welcome {user.name}</h1>
                 </div>

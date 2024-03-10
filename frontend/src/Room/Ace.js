@@ -81,17 +81,6 @@ const Ace = ({
 
     }, [code])
 
-    useEffect(() => {
-        document.querySelector("#change-theme").addEventListener('click', () => {
-            if (document.querySelector("#root").classList.contains("dark")) {
-                setTheme('monokai')
-            } else {
-                setTheme('github')
-            }
-        })
-    }, [])
-
-
     function handleChange(newValue, event) {
 
         const patch = dmp.patch_make(code, newValue);

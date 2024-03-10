@@ -65,7 +65,7 @@ function Login() {
         }).catch((error, url) => {
             loadingStop();
             console.log(url);
-            console.log("error in axios login call", error);
+            console.log("error in axios login call", error.response.message);
         });
     }
 

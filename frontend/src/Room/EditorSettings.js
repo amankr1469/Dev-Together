@@ -61,7 +61,7 @@ const Settings = ({
 
     return (
         <div className="editor-settings">
-            <AppBar position='Static' style={{ minHeight: 70 }} >
+            <AppBar position='static' style={{ minHeight: 70 }} >
                 <Toolbar>
                     <Typography variant="h5" style={{ flexGrow: 5 }}>
                         {roomName}{'\n' + roomid}
