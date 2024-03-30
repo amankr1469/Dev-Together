@@ -11,7 +11,7 @@ function createRoom(roomid, roomName, code, language, input, output) {
             code,
             language,
             input,
-            output
+            output 
         }
     }
 }

@@ -1,17 +1,11 @@
 import React, { useContext, useState, useEffect } from "react";
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { DataContext } from "./DataContext";
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Loader from "./Loader";
 import { generateFromString } from 'generate-avatar';
-
-const override = {
-    display: 'block',
-    margin: '0 auto',
-    borderColor: 'red',
-};
 
 const RoomData = () => {
     const { user, setCurrRoom, setUser } = useContext(DataContext);
@@ -28,8 +22,7 @@ const RoomData = () => {
     }
 
     useEffect(() => {
-
-        toast.success(`Welcome to CodeCast ${user.name}`, {
+        toast.success(`Welcome ${user.name}`, {
             position: toast.POSITION.TOP_RIGHT
         });
 
@@ -53,7 +46,7 @@ const RoomData = () => {
                 toast.error('Error Fetching Room', {
                     position: toast.POSITION.TOP_RIGHT
                 });
-                console.log(error)
+                console.log(error);
             });
     }
 
@@ -183,16 +176,19 @@ const RoomData = () => {
                 <button onClick={logout} className="logOut">Logout</button>
                 <div className="userData" >
                     {user.avatar ?
-                        <img src={user.avatar} height={100} alt='user profile' style={{borderRadius: '50%'}} />
-                        : <img height={100} src={`data:image/svg+xml;utf8,${generateFromString(user.email + user.name)}`} alt="user profile" style={{borderRadius: '50%'}}  />
+                        <img src={user.avatar} height={100} alt='user profile' style={{borderRadius: '50%', width: '5rem', height: '5rem'}} />
+                        : <img height={100} src={`data:image/svg+xml;utf8,${generateFromString(user.email + user.name)}`} alt="user profile" style={{borderRadius: '50%', width: '5rem', height: '5rem'}}  />
                     }
-                    <h1>Welcome {user.name}</h1>
                 </div>
                 <div className="join-room">
+                    <div className="room-input">
                     <input id="roomName" placeholder="Enter Room Name" />
                     <button onClick={createRoom} >Create Room</button>
+                    </div>
+                    <div className="room-input">
                     <input id="roomID" placeholder="Enter Room ID to join" />
                     <button onClick={joinRoom} >Join Room</button>
+                    </div>
                 </div>
                 <table sx={{ minWidth: 650 }} aria-label="simple table">
                     <thead>

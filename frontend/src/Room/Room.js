@@ -1,3 +1,4 @@
+/* eslint-disable no-lone-blocks */
 import { useContext, useEffect, useState, useRef } from 'react';
 import { DataContext } from '../Components/DataContext';
 import { useNavigate } from 'react-router-dom';
@@ -9,7 +10,7 @@ import defaultCode from './../static/default_code.json';
 import axios from 'axios';
 import VideoChat from './VideoChat';
 import WhiteBoard from './WhiteBoard';
-const dmp = new diff_match_patch();
+const dmp = new diff_match_patch(); 
 
 const Room = () => {
     const { user, currRoom, socket } = useContext(DataContext);

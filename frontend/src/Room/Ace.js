@@ -9,7 +9,7 @@ import 'ace-builds/src-noconflict/mode-python';
 import 'ace-builds/src-noconflict/mode-c_cpp';
 import 'ace-builds/src-noconflict/mode-csharp';
 import 'ace-builds/src-noconflict/mode-golang';
-import 'ace-builds/src-noconflict/mode-rust.js';
+import 'ace-builds/src-noconflict/mode-rust.js'; 
 
 
 import 'ace-builds/src-noconflict/theme-monokai';
@@ -84,6 +84,7 @@ const Ace = ({
     function handleChange(newValue, event) {
 
         const patch = dmp.patch_make(code, newValue);
+        
         code = newValue;
         updateRoom(patch);
         setCode(newValue)
@@ -162,7 +163,7 @@ const Ace = ({
                             theme={theme}
                             language={''}
                             value={output}
-                            width=""
+                            width="" 
                             height=""
                             readOnly={true}
                             fontSize={fontSize}
