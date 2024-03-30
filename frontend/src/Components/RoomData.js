@@ -10,7 +10,7 @@ import { generateFromString } from 'generate-avatar';
 const RoomData = () => {
     const { user, setCurrRoom, setUser } = useContext(DataContext);
     const navigate = useNavigate();
-    const REACT_APP_BACKEND_URL = "http://localhost:4000/";
+    const REACT_APP_BACKEND_URL = 'https://dev-together.vercel.app/';
 
     const [isLoading, setIsLoading] = useState(false);
 
