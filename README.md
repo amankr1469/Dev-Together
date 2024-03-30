@@ -1,6 +1,6 @@
 # Dev Together
 
-Collaborative platform tailored for real-time code editing, complete with an integrated whiteboard with the help of Canvas facilitating the illustration of ideas. The video chat feature is powered by WebRTC technology, ensuring high-quality and reliable real-time communication.
+Collaborative platform tailored for real-time code editing where user can make room and invite other users to join the room and code together, also integrated jdoodle APIs to compile the code, an whiteboard with the help of Canvas facilitating the free style draw and illustrations. The video chat feature is powered by WebRTC technology, ensuring high-quality and reliable real-time communication.
 
 ## Installation
 
