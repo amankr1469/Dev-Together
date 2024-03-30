@@ -47,7 +47,7 @@ function mangerRoom(socket, io) {
 
         } catch (err) {
             console.log(err);
-            socket.emit('error', { error: err });
+            socket.emit('error', { error: err }); 
         }
     });
 
