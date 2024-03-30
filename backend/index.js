@@ -47,11 +47,12 @@ setInterval(() => {
         })
 }, 300000);
 
+httpServer.listen(port, () => {
+    console.log('Server started on port: ' + port);
+})
+
 DBConnect().then(() => {
     console.log("DB connected");
-    httpServer.listen(port, () => {
-        console.log('Server started on port: ' + port);
-    })
 });
 
 
