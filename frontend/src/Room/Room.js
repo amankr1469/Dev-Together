@@ -27,7 +27,7 @@ const Room = () => {
     const EditorRef = useRef(null);
     const [isWhiteBoard, setIsWhiteBoard] = useState(false);
     const userVideoRef = useRef(null);
-    const REACT_APP_BACKEND_URL = 'http://localhost:4000/';
+    const REACT_APP_BACKEND_URL = 'https://dev-together.vercel.app/';
     function updateRoom(patch) {
         socket.emit('update', { roomid, patch })
     }
