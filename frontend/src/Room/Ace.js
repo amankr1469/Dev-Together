@@ -46,7 +46,7 @@ const Ace = ({
     const [fontSize, setFontSize] = useState(18);
     const [fontFamily, setFontFamily] = useState('monospace');
     const sent = useRef(true);
-    const REACT_APP_BACKEND_URL = 'https://dev-together-server.vercel.app/';
+    const REACT_APP_BACKEND_URL = 'https://dev-together-server.onrender.com/';
 
 
     useEffect(() => {
